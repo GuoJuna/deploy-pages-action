@@ -24,9 +24,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-## 推送到coding
-##git remote add coding git@e.coding.net:guojuna/blog/blog.git
-##git push -u coding master -f
 
 ## 推送到github
 git remote add github "$REPO_URL"

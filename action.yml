@@ -1,0 +1,27 @@
+name: Deploy Pages Action
+author: GuoJun <guo_juna@qq.com>
+description: Sync repo
+branding:
+  icon: upload-cloud
+  color: yellow
+inputs:
+  repo_url:
+    description: gitHub repo url
+    required: true
+  branch:
+    description: branch name
+    required: true
+  cname:
+    description: custom domain names
+    required: false  
+  ssh_private_key:
+    description: SSH key used to authenticate with git clone urls provided 
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
+  args:
+    - ${{ inputs.repo_url }}
+    - ${{ inputs.branch }}
